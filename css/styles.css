@@ -155,6 +155,11 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Listing ====================== */
+#map-container h2, #results-container h2, #reviews-container h2, #restaurant-container h2{
+  position: absolute;
+  font-size: 0px;
+  
+}
 
 #restaurants-list {
   background-color: #f3f3f3;
@@ -266,7 +271,7 @@ nav h1 a {
   border-top: 1px solid #d9d9d9;
 }
 
-#reviews-container h2 {  
+#reviews-container h3 {  
   color: #f58500;
   font-size: 1.5rem;
   font-weight: 300;

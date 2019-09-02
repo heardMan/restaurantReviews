@@ -147,44 +147,77 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
-  restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+  restaurants.forEach((restaurant, i ) => {
+    ul.append(createRestaurantHTML(restaurant, i , self.restaurants.length));
   });
   addMarkersToMap();
   addARIAtoMarkers();
+  modifyAttributionLinksARIA();
+
 
 }
 
+// /**
+//  * Get all attribution links
+//  */
+// getAttributionLinks = () => {
+//   return document.querySelectorAll('.leaflet-control-attribution a');
+// }
+
+// /**
+//  * Change Attribution link Aria Labels
+//  */
+// modifyAttributionLinksARIA = () => {
+//   const links = getAttributionLinks();
+//   const lastLink = document.querySelectorAll('.leaflet-control-attribution as')[0];
+//   console.log(links);
+//   links.forEach(link => {
+//     link.setAttribute('aria-label', `Map Attribution Link ${link.textContent}`);
+//   })
+//   lastLink.setAttribute('aria-label', `Map Attribution Link ${lastLink.textContent}`);
+// }
 
 
 /**
  * Create restaurant HTML.
  */
-createRestaurantHTML = (restaurant) => {
+createRestaurantHTML = (restaurant, i, length) => {
   const li = document.createElement('li');
 console.log(restaurant);
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.setAttribute('alt', `Image of ${restaurant["main-photograph-alt"]}`);
+  image.setAttribute('aria-label', `Image of ${restaurant["main-photograph-alt"]}`);
+  image.setAttribute('tabindex', '0');
+
   li.append(image);
 
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
+  name.setAttribute('aria-label', `${restaurant.name}`);
+  name.setAttribute('tabindex', '0');
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
+  neighborhood.setAttribute('aria-label', `Located in ${restaurant.neighborhood}`);
+  neighborhood.setAttribute('tabindex', '0');
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', `Street Address ${restaurant.address}`);
+  address.setAttribute('tabindex', '0');
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  li.append(more);
+  li.setAttribute('aria-label', `Matching Resaurant ${i+1} of ${length}`);
+  li.setAttribute('tabindex', '0');
+
 
   return li
 }

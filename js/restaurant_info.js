@@ -6,6 +6,8 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+  
+  
 });
 
 /**
@@ -31,6 +33,7 @@ initMap = () => {
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+      modifyAttributionLinksARIA();
     }
   });
 }  
@@ -111,25 +114,33 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
   for (let key in operatingHours) {
     const row = document.createElement('tr');
+    row.setAttribute('tabindex', "0");
 
     const day = document.createElement('td');
     day.innerHTML = key;
+    // day.setAttribute('aria-label', key);
+    // day.setAttribute('tabindex', "0");
     row.appendChild(day);
 
     const time = document.createElement('td');
 
     if(operatingHours[key].includes(', ')){
       const hourSet = operatingHours[key].split(', ');
+      let ariaLabelString = '';
       hourSet.forEach(setOfHours => {
         const times = document.createElement('div');
         times.textContent = setOfHours;
+        ariaLabelString += ` ${setOfHours}`;
         time.appendChild(times);
+
       });
+      // time.setAttribute('aria-label', ariaLabelString)
     }
     else {
       time.innerHTML = operatingHours[key];
+      // time.setAttribute('aria-label', operatingHours[key])
     }
-
+    // time.setAttribute('tabindex', '0')
     
     row.appendChild(time);
 
@@ -142,19 +153,20 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
+    noReviews.setAttribute('aria-label', 'No reviews yet.');
     container.appendChild(noReviews);
     return;
   }
   const ul = document.getElementById('reviews-list');
-  reviews.forEach(review => {
-    ul.appendChild(createReviewHTML(review));
+  reviews.forEach((review, i) => {
+    ul.appendChild(createReviewHTML(review, i+1, reviews.length));
   });
   container.appendChild(ul);
 }
@@ -162,25 +174,53 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 /**
  * Create review HTML and add it to the webpage.
  */
-createReviewHTML = (review) => {
+createReviewHTML = (review, i , length) => {
   const li = document.createElement('li');
+
+  const reviewInfo = document.createElement('div');
+
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  reviewInfo.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  reviewInfo.appendChild(date);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+
+  rating.innerHTML = calculateRating(review.rating);
+  reviewInfo.appendChild(rating);
+
+  const ariaLabelString = `This is a ${review.rating} thumbs up review written by ${review.name} on ${review.date}`;
+
+  reviewInfo.setAttribute('aria-label', ariaLabelString);
+  reviewInfo.setAttribute('tabindex', '0');
+  li.appendChild(reviewInfo);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.setAttribute('aria-label', review.comments);
+  comments.setAttribute('tabindex', '0');
+  
   li.appendChild(comments);
+  
+  li.setAttribute('role', 'listitem');
+  li.setAttribute('aria-label', `List item ${i} of ${length}`);
+  li.setAttribute('tabindex', '0');
 
   return li;
+}
+
+/**
+ * Calculate Rating
+ */
+calculateRating = (length) => {
+  let ratingString = '';
+  for(let i = 0; i<length; i++){
+    ratingString += '👍';
+  }
+  return ratingString;
 }
 
 /**
@@ -190,6 +230,9 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
+  li.setAttribute('aria-label', `Currently selected restaurant ${restaurant.name}`);
+  li.setAttribute('tabindex', '0');
+
   breadcrumb.appendChild(li);
 }
 

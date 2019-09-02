@@ -18,36 +18,38 @@
     </nav>
   </header>
   <main id="maincontent">
-    <section id="map-container">
-      <h2>Restaurant Map</h2>
-      <div id="map" tabindex="-1" alt="map"></div>
+    <section id="map-container" >
+      <h2 tabindex="-1">Restaurant Map</h2>
+      <div id="map" aria-label="Restaurant Map" alt="map"></div>
     </section>
     <section id="filter-container">
       <div class="filter-options">
-        <h2>Filter Results</h2>
+        <h2 aria-label="Filter Control Section" tabindex="0">Filter Results</h2>
         <div class="form-row">
-          <label for="neighborhoods-select">Neighborhoods</label>
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <label aria-label="Filter Restaurants by neighborhood press control option shift right to set this filter" for="neighborhoods-select">Neighborhoods</label>
+          <select aria-label="Filter by neighborhood."  id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
         </div>
         <div class="form-row">
-          <label for="cuisines-select">Cuisines</label>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <label aria-label="Filter Restaurants by cuisine type press control option shift right to set this filter" for="cuisines-select">Cuisines</label>
+          <select aria-label="Filter by cuisine type." id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
         </div>
       </div>
     </section>
     <section id="results-container">
-      <h2 id="search-results">Search Results</h2>
+      <h2 tabindex="-1" id="search-results">Search Results</h2>
 
-      <ul id="restaurants-list"></ul>
+      <ul id="restaurants-list" aria-label="Matching Restaurants"></ul>
     </section>
   </main>
   <script src="js/leaflet.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
+  
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+  <script type="application/javascript" charset="utf-8" src="js/util.js"></script>
   <footer id="footer">
     &copy; 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
