@@ -45,14 +45,28 @@
       <ul id="restaurants-list" aria-label="Matching Restaurants"></ul>
     </section>
   </main>
+  
+  <footer id="footer">
+    &copy; 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+  <script src="js/polyfills/cache.js"></script>
   <script src="js/leaflet.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/util.js"></script>
-  <footer id="footer">
-    &copy; 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-  </footer>
+  <script >
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(function(registration) {
+            console.log('Service Worker Registered');
+      });
+    navigator.serviceWorker.ready.then(function(registration) {
+       console.log('Service Worker Ready');
+    });
+  }
+  </script>
+  
 </body>
 
 </html>

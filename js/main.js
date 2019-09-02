@@ -110,9 +110,13 @@ updateRestaurants = () => {
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
 
-  let cIndex = cSelect.selectedIndex === -1 ? cIndex = 0: cIndex = cSelect.selectedIndex;
+  let cIndex;
+  if(cSelect.selectedIndex === -1 ) cIndex = 0;
+  else cIndex = cSelect.selectedIndex;
 
-  let nIndex = nSelect.selectedIndex === -1 ? nIndex = 0: nIndex = nSelect.selectedIndex;
+  let nIndex;
+  if(nSelect.selectedIndex === -1 ) nIndex = 0;
+  else nIndex = nSelect.selectedIndex;
 
   const cuisine = cSelect[cIndex].value;
   
