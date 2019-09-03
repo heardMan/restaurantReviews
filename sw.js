@@ -1,49 +1,33 @@
-const version = "0.6.12r";
-const cacheName = `restaurantReviews-${version}`;
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = [
+  '/index.html',
+  '/restaurant.html',
+  '/css/styles.css',
+  '/js/main.js',
+  '/js/restaurant_info.js'
+];
 
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll([
-        `/`,
-        `/index.html`,
-        `/restaurant.html`,
-        `/css/imgs/marker-icon-2x.png`,
-        `/css/imgs/marker-icon.png`,
-        `/css/imgs/marker1-shadow.png`,
-        `/css/leaflet.css`,
-        `/css/styles.css`,
-        `/data/restaurants.json`,
-        `/js/polyfills/cache.js`,
-        `/js/dbhelper.js`,
-        `/js/leaflet.js`,
-        `/js/main.js`,
-        `/js/restaurant_info.js`,
-        `/js/sw.register.js`,
-        `/js/sw.util.js`,
-        `sw.js`
-
-      ])
-          .then(() => self.skipWaiting())
-          .catch(err=>console.log(err))
-    })
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
-});
-
-self.addEventListener('fetch', event => {
-  console.log(event);
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.open(cacheName)
-      .then(cache => {
-        
-        cache.match(event.request, {ignoreSearch: true})
-      })
-      .then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
