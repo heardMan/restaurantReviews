@@ -64,7 +64,10 @@
     }, function(err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
-    });
+    })
+    .catch(function(err){
+      console.log(err)
+    })
   });
 }
   </script>
