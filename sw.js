@@ -1,4 +1,4 @@
-const CACHE_NAME = 'my-site-cache-v3';
+const CACHE_NAME = 'my-site-cache-v4';
 const urlsToCache = [
   '/index.html',
   '/restaurant.html',
@@ -51,5 +51,6 @@ self.addEventListener('fetch', function(event) {
           }
         );
       })
+      .catch(err=>console.log(err));
     );
 });
