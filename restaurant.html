@@ -15,13 +15,13 @@
 
 <body class="inside">
   <!-- Beginning header -->
-  <header>
+  <header role="contentinfo" aria-label="Header">
     <!-- Beginning nav -->
-    <nav>
+    <nav id="nav" role="navigation" aria-label="navbar">
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
+    <ul id="breadcrumb" role="navigation" aria-label="Breadcrumb" >
       <li><a href="./">Home</a></li>
     </ul>
     <!-- End breadcrumb -->
@@ -30,34 +30,34 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent">
+  <main id="maincontent" role="main" aria-label="Main Content">
     <!-- Beginning map -->
-    <section id="map-container" >
+    <section id="map-container" role="region" aria-label="Map Section">
         <h2 tabindex="-1">Restaurant Map</h2>
-      <div id="map" aria-label="Restaurant Map"></div>
+      <div id="map" role="application" aria-label="Restaurant Map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section id="restaurant-container" tabindex="0">
+    <section id="restaurant-container" role="region" aria-label="Restaurant Infomation Section" tabindex="0">
       <h2 tabindex="-1" id="search-results">Restaurant Information Section</h2>
       <h3 id="restaurant-name" tabindex="0"></h3>
-      <img id="restaurant-img" aria-label="Restaurant Image" tabindex="0">
+      <img id="restaurant-img" role="img" aria-label="Restaurant Image" tabindex="0" alt="initial empty image element">
       <p id="restaurant-cuisine" aria-label="Restaurant Cuisine Style" tabindex="0"></p>
       <p id="restaurant-address" aria-label="Restaurant Address" tabindex="0"></p>
-      <table id="restaurant-hours" aria-label="Restaurant Hours" tabindex="0"></table>
+      <table id="restaurant-hours" role="table" aria-label="Restaurant Hours" tabindex="0"></table>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
-    <section id="reviews-container" tabindex="0">
+    <section id="reviews-container" role="region" aria-label="Restaurant Reviews Section" tabindex="0">
         <h2 tabindex="-1" id="search-results">Restaurant Reviews Section</h2>
-      <ul id="reviews-list" aria-label="Reviews List" tabindex="0"></ul>
+      <ul id="reviews-list" role="list" aria-label="Reviews List" tabindex="0"></ul>
     </section>
     <!-- End reviews -->
   </main>
   <!-- End main -->
 
   <!-- Beginning footer -->
-  <footer id="footer">
+  <footer id="footer" role="contentinfo" aria-label="Footer">
     &copy; 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
   <!-- End footer -->
@@ -75,7 +75,18 @@
   <!-- Google Maps -->
  <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script> -->
   <!-- End scripts -->
-  <script src="js/sw.register.js"></script>
-</body>
+  <script >
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
+        .then(function(registration) {
+              console.log('Service Worker Registered');
+        }).catch(err=>{console.log(err)});
+      navigator.serviceWorker.ready.then(function(registration) {
+         console.log('Service Worker Ready');
+      })
+      
+      
+    }
+    </script>
 
 </html>

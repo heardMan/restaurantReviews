@@ -12,18 +12,18 @@
 </head>
 
 <body>
-  <header>
+  <header role="contentinfo" aria-label="Header">
     <nav>
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
   </header>
-  <main id="maincontent">
-    <section id="map-container" >
+  <main id="maincontent" role="main" aria-label="Main Content">
+    <section id="map-container" role="region" aria-label="Map Section">
       <h2 tabindex="-1">Restaurant Map</h2>
-      <div id="map" aria-label="Restaurant Map" alt="map"></div>
+      <div id="map" role="application" aria-label="Restaurant Map" alt="map"></div>
     </section>
     <section id="filter-container">
-      <div class="filter-options">
+      <div role="form" aria-label="Results Filter" class="filter-options">
         <h2 aria-label="Filter Control Section" tabindex="0">Filter Results</h2>
         <div class="form-row">
           <label aria-label="Filter Restaurants by neighborhood press control option shift right to set this filter" for="neighborhoods-select">Neighborhoods</label>
@@ -39,14 +39,14 @@
         </div>
       </div>
     </section>
-    <section id="results-container">
+    <section id="results-container" role="region" aria-label="Results Container">
       <h2 tabindex="-1" id="search-results">Search Results</h2>
 
-      <ul id="restaurants-list" aria-label="Matching Restaurants"></ul>
+      <ul id="restaurants-list" role="feed" aria-label="Matching Restaurants"></ul>
     </section>
   </main>
   
-  <footer id="footer">
+  <footer id="footer" role="contentinfo" aria-label="Footer">
     &copy; 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
   <script src="js/polyfills/cache.js"></script>
