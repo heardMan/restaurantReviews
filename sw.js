@@ -1,12 +1,12 @@
 const CACHE_NAME = 'my-site-cache-v4';
 const urlsToCache = [
-  '/index.html',
-  '/restaurant.html',
-  '/css/styles.css',
-  '/data/restaurants.json',
-  '/img',
-  '/js/main.js',
-  '/js/restaurant_info.js'
+  './index.html',
+  './restaurant.html',
+  './css/styles.css',
+  './data/restaurants.json',
+  './img',
+  './js/main.js',
+  './js/restaurant_info.js'
 ];
 
 self.addEventListener('install', function(event) {
