@@ -47,6 +47,7 @@ self.addEventListener('fetch', function(event) {
   const requestURL = new URL(event.request.url);
   if(requestURL.pathname === '/restaurantReviews/restaurant.html'){
     console.log(event.request);
+    console.log(new Request('/restaurant.html'));
     console.log('path matched');
     event.respondWith(
       caches.match(new Request('/restaurant.html'))
