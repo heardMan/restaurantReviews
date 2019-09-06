@@ -63,7 +63,7 @@
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
       console.log(registration);
-      const worker = new Worker('/sw.js');
+      const worker = new Worker('./sw.js');
       worker.postMessage({action: 'skipWaiting'})
       
       //registration.active.postMessage({action: 'skipWaiting'});
