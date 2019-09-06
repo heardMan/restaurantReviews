@@ -1,17 +1,17 @@
 const CACHE_NAME = 'my-site-cache-v5';
 const urlsToCache = [
-  './index.html',
-  './restaurant.html',
-  './css/images/marker-icon-2x.png',
-  './css/images/marker-icon.png',
-  './css/images/marker1-shadow.png',
-  './css/leaflet.css',
-  './css/styles.css',
-  './data/restaurants.json',
-  './js/leaflet.js',
-  './js/main.js',
-  './js/restaurant_info.js',
-  './js/util.js'
+  '/index.html',
+  '/restaurant.html',
+  '/css/images/marker-icon-2x.png',
+  '/css/images/marker-icon.png',
+  '/css/images/marker1-shadow.png',
+  '/css/leaflet.css',
+  '/css/styles.css',
+  '/data/restaurants.json',
+  '/js/leaflet.js',
+  '/js/main.js',
+  '/js/restaurant_info.js',
+  '/js/util.js'
 ];
 
 self.addEventListener('install', function(event) {
@@ -45,12 +45,12 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
   const requestURL = new URL(event.request.url);
-  if(requestURL.pathname === '/restaurantReviews/restaurant.html'){
+  if(requestURL.pathname === '/'){
     console.log(event.request);
-    console.log(new Request('/restaurant.html'));
+    console.log(new Request('/index.html'));
     console.log('path matched');
     event.respondWith(
-      caches.match(new Request('/restaurant.html'))
+      caches.match(new Request('/index.html'))
       .then(function(response) {
         // Cache hit - return response
         if (response) {
@@ -117,4 +117,9 @@ self.addEventListener('fetch', function(event) {
       })
       .catch(err=>console.log(err))
     );
+});
+
+self.addEventListener('message',function(event){
+  if(event.data.action === 'skipWaiting') self.skipWaiting();
+  
 });
