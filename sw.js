@@ -1,6 +1,11 @@
 const CACHE_NAME = 'my-site-cache-v5';
 const urlsToCache = [
-  './index.html'
+  './index.html',
+  './restaurant.html',
+  './js/leaflet.js',
+  './js/main.js',
+  './js/restaurant_info.js',
+  './js/util.js'
 ];
 
 self.addEventListener('install', function(event) {
