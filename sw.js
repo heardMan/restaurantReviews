@@ -15,6 +15,7 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', function(event) {
+  self.skipWaiting();
   // Perform install steps
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -119,7 +120,7 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
-self.addEventListener('message',function(event){
-  if(event.data.action === 'skipWaiting') self.skipWaiting();
+// self.addEventListener('message',function(event){
+//   if(event.data.action === 'skipWaiting') self.skipWaiting();
   
-});
+// });
