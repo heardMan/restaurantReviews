@@ -61,8 +61,9 @@
     navigator.serviceWorker.register('./sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      console.log(registration);
-      registration.active.postMessage({action: 'skipWaiting'});
+      console.log(registration.active);
+      
+      //registration.active.postMessage({action: 'skipWaiting'});
     }, function(err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
