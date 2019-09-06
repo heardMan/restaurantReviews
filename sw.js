@@ -1,5 +1,5 @@
-var CACHE_NAME = 'my-site-cache-v2';
-var urlsToCache = [
+const CACHE_NAME = 'my-site-cache-v2';
+const urlsToCache = [
   '/index.html',
   '/restaurant.html',
   '/css/styles.css',
