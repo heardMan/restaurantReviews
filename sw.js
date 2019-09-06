@@ -49,7 +49,7 @@ self.addEventListener('fetch', function(event) {
     console.log(event.request);
     console.log('path matched');
     event.respondWith(
-      caches.match('/restaurant.html')
+      caches.match(new Request('/restaurant.html'))
       .then(function(response) {
         // Cache hit - return response
         if (response) {
