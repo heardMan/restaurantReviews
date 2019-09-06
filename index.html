@@ -57,13 +57,16 @@
   <script type="application/javascript" charset="utf-8" src="js/util.js"></script>
   <script >
   if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js', { scope: './' })
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
       .then(function(registration) {
             console.log('Service Worker Registered');
       }).catch(err=>{console.log(err)});
     navigator.serviceWorker.ready.then(function(registration) {
        console.log('Service Worker Ready');
     })
+  });
+    
     
     
   }
