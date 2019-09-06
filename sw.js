@@ -2,6 +2,12 @@ const CACHE_NAME = 'my-site-cache-v5';
 const urlsToCache = [
   './index.html',
   './restaurant.html',
+  './css/images/marker-icon-2x.png',
+  './css/images/marker-icon.png',
+  './css/images/marker1-shadow.png',
+  './css/leaflet.css',
+  './css/styles.css',
+  './data/restaurants.json',
   './js/leaflet.js',
   './js/main.js',
   './js/restaurant_info.js',
