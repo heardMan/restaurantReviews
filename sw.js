@@ -13,6 +13,7 @@ const urlsToCache = [
   './js/leaflet.js',
   './js/main.js',
   './js/restaurant_info.js',
+  './js/sw.register.js',
   './js/util.js',
   './img/1.jpg',
   './img/2.jpg',
