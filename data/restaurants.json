@@ -4,7 +4,7 @@
     "name": "Mission Chinese Food",
     "neighborhood": "Manhattan",
     "main-photograph": "1.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "An image of a crowded dining room at Mission Chinese Food.",
     "address": "171 E Broadway, New York, NY 10002",
     "latlng": {
       "lat": 40.713829,
@@ -44,7 +44,7 @@
     "name": "Emily",
     "neighborhood": "Brooklyn",
     "main-photograph": "2.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Photograph of a the award winning Magherita pizza from Emily.",
     "address": "919 Fulton St, Brooklyn, NY 11238",
     "latlng": {
       "lat": 40.683555,
@@ -84,7 +84,7 @@
     "name": "Kang Ho Dong Baekjeong",
     "neighborhood": "Manhattan",
     "main-photograph": "3.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of the dining room at Kang Ho Dong Baekjeong.",
     "address": "1 E 32nd St, New York, NY 10016",
     "latlng": {
       "lat": 40.747143,
@@ -124,7 +124,7 @@
     "name": "Katz's Delicatessen",
     "neighborhood": "Manhattan",
     "main-photograph": "4.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of the the store front for Katz's Delicatessen.",
     "address": "205 E Houston St, New York, NY 10002",
     "latlng": {
       "lat": 40.722216,
@@ -164,7 +164,7 @@
     "name": "Roberta's Pizza",
     "neighborhood": "Brooklyn",
     "main-photograph": "5.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Photograph of a bustling dining room at Roberta's Pizza.",
     "address": "261 Moore St, Brooklyn, NY 11206",
     "latlng": {
       "lat": 40.705089,
@@ -204,7 +204,7 @@
     "name": "Hometown BBQ",
     "neighborhood": "Brooklyn",
     "main-photograph": "6.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of a crowded dining room at Hometown BBQ.",
     "address": "454 Van Brunt St, Brooklyn, NY 11231",
     "latlng": {
       "lat": 40.674925,
@@ -244,7 +244,7 @@
     "name": "Superiority Burger",
     "neighborhood": "Manhattan",
     "main-photograph": "7.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of the storefront at Superiority Burger.",
     "address": "430 E 9th St, New York, NY 10009",
     "latlng": {
       "lat": 40.727397,
@@ -284,7 +284,7 @@
     "name": "The Dutch",
     "neighborhood": "Manhattan",
     "main-photograph": "8.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of the main store front sign at The Dutch.",
     "address": "131 Sullivan St, New York, NY 10012",
     "latlng": {
       "lat": 40.726584,
@@ -324,7 +324,7 @@
     "name": "Mu Ramen",
     "neighborhood": "Queens",
     "main-photograph": "9.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of customers enjoyings a meal at Mu Ramen.",
     "address": "1209 Jackson Ave, Queens, NY 11101",
     "latlng": {
       "lat": 40.743797,
@@ -364,7 +364,7 @@
     "name": "Casa Enrique",
     "neighborhood": "Queens",
     "main-photograph": "10.jpg",
-    "main-photograph-alt": "a short description",
+    "main-photograph-alt": "Image of the dining room at Casa Enrique.",
     "address": "5-48 49th Ave, Queens, NY 11101",
     "latlng": {
       "lat": 40.743394,

@@ -1,3 +1,9 @@
+/**
+ * This code mostly follows the service worker spec outlined by Google at:
+ * https://developers.google.com/web/fundamentals/primers/service-workers/
+ * 
+ */
+
 const CACHE_NAME = 'my-site-cache-v5';
 const urlsToCache = [
   './index.html',
@@ -24,11 +30,12 @@ const urlsToCache = [
   './img/7.jpg',
   './img/8.jpg',
   './img/9.jpg',
-  './img/10.jpg'
-  
-
+  './img/10.jpg',
 ];
 
+/**
+ * Here we install the service worker
+ */
 self.addEventListener('install', function(event) {
   self.skipWaiting();
   // Perform install steps
@@ -36,14 +43,14 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache');
-        console.log(cache.addAll(urlsToCache));
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-
-
+/**
+ * Here we set the fetch logic for the service worker
+ */
 self.addEventListener('fetch', function(event) {
   const url = new URL(event.request.url);
   
@@ -94,8 +101,3 @@ self.addEventListener('fetch', function(event) {
       })
     );
 });
-
-// self.addEventListener('message',function(event){
-//   if(event.data.action === 'skipWaiting') self.skipWaiting();
-  
-// });

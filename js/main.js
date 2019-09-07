@@ -90,18 +90,6 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
@@ -121,8 +109,6 @@ updateRestaurants = () => {
   const cuisine = cSelect[cIndex].value;
   
   const neighborhood = nSelect[nIndex].value;
-
-
 
   DBHelper.fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, (error, restaurants) => {
     if (error) { // Got an error!
@@ -166,27 +152,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 
 }
 
-// /**
-//  * Get all attribution links
-//  */
-// getAttributionLinks = () => {
-//   return document.querySelectorAll('.leaflet-control-attribution a');
-// }
-
-// /**
-//  * Change Attribution link Aria Labels
-//  */
-// modifyAttributionLinksARIA = () => {
-//   const links = getAttributionLinks();
-//   const lastLink = document.querySelectorAll('.leaflet-control-attribution as')[0];
-//   console.log(links);
-//   links.forEach(link => {
-//     link.setAttribute('aria-label', `Map Attribution Link ${link.textContent}`);
-//   })
-//   lastLink.setAttribute('aria-label', `Map Attribution Link ${lastLink.textContent}`);
-// }
-
-
 /**
  * Create restaurant HTML.
  */
@@ -227,7 +192,6 @@ createRestaurantHTML = (restaurant, i, length) => {
   li.setAttribute('aria-label', `Matching Resaurant ${i+1} of ${length}`);
   li.setAttribute('tabindex', '0');
 
-
   return li
 }
 
@@ -264,14 +228,3 @@ addARIAtoMarkers = (restaurants = self.restaurants) => {
 getMarker = (restaurant) => {
   return document.querySelector(`.restaurant-${restaurant.id}`);
 }
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
-
