@@ -63,7 +63,7 @@ self.addEventListener('fetch', function(event) {
           return fetch('./index.html');
         }
         if(url.pathname === '/restaurantReviews/restaurant.html'){
-          console.log('index served');
+          console.log('restaurant served');
           return fetch('./restaurant.html');
         }
 

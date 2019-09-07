@@ -27,12 +27,16 @@ html, body {
 
 #footer {
   background-color: #444;
-  color: #aaa;
+  color: #fff;
   font-size: 0.75rem;
   text-align: center;
   text-transform: uppercase;
   
   padding: 1rem 0.5rem 1rem 0.5rem;
+}
+
+#footer strong {
+  color: #fff;
 }
 
 /* ====================== Navigation ====================== */
@@ -175,7 +179,7 @@ nav h1 a {
 }
 
 #restaurants-list li {
-  background-color: #fff;
+  background-color: #595959;
   border-radius: 7px;
   font-family: Arial,sans-serif;
   min-height: 380px;
@@ -193,15 +197,16 @@ nav h1 a {
 }
 
 #restaurants-list li h3 {
-  color: #f18200;
+  color: #FFC48A;
   font-family: Arial,sans-serif;
   font-size: 1.5rem;
-  font-weight: 200;
+  font-weight: 700 !important;
   margin: 1rem;
   text-transform: uppercase;
 }
 
 #restaurants-list p {
+  color: #fff;
   margin: 1rem;
 }
 
@@ -210,7 +215,6 @@ nav h1 a {
   display: block;
   width: 50%;
   background-color: #0077c8;
-  border-bottom: 3px solid #eee;
   color: #fff;
   font-size: 1rem;
   margin-top: 2rem;
