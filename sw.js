@@ -50,11 +50,11 @@ self.addEventListener('fetch', function(event) {
     caches.match(event.request)
       .then(function(response) {
         // Cache hit - return response
-        if(url.pathname === './'){
+        if(url.pathname === '/restaurantReviews'){
           console.log('index served');
           return fetch('./index.html');
         }
-        if(url.pathname === './restaurant.html'){
+        if(url.pathname === '/restaurantReviews/restaurant.html'){
           console.log('index served');
           return fetch('./restaurant.html');
         }
