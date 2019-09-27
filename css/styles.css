@@ -206,7 +206,7 @@ nav h1 a {
 }
 
 #restaurants-list p {
-  color: #2e3131;
+  color: #2e3131!important;
   margin: 1rem;
 }
 
