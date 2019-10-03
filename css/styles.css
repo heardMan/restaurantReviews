@@ -169,8 +169,10 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin-top: 1.5rem;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   padding: 1rem 0rem 0rem 0rem;
-  width:90%;
+  width:100%;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
