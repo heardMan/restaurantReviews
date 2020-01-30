@@ -23,7 +23,8 @@
 
 <p>Here is a brief over view of the directory structure</p>
 
-<p>This application has 2 views: index.html and restaurant.html</p>
+<p>This application has 2 views:</p>
+<p>index.html and restaurant.html</p>
 
 <p>
 Each view has it's own controller-- main.js is coupled with index.html and restaurant_info.js is coupled with restaurant.html
