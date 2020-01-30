@@ -26,13 +26,15 @@
 <p>This application has 2 views:</p>
 
 <ul>
-<li>index.html</li>
-<li>restaurant.html</li>
+ <li>index.html</li>
+ <li>restaurant.html</li>
 </ul>
 
-<p>
-Each view has it's own controller-- main.js is coupled with index.html and restaurant_info.js is coupled with restaurant.html
-</p>
+<p>Each view has it's own controller --</p>
+<ul>
+ <li>main.js is coupled with index.html</li>
+ <li>restaurant_info.js is coupled with restaurant.html</li>
+</ul>
 
 <p>The model of the application is set in dbhelper.js and currently points to the JSON files located in the <code>data</code> directory.</p>
 
