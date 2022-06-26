@@ -8,7 +8,7 @@ var markers = []
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
- 
+
   fetchNeighborhoods();
   fetchCuisines();
   initMap(); // added 
@@ -74,20 +74,30 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  */
 initMap = () => {
   self.newMap = L.map('map', {
-        center: [40.722216, -73.987501],
-        zoom: 12,
-        scrollWheelZoom: false
-      });
+    center: [40.722216, -73.987501],
+    zoom: 12,
+    scrollWheelZoom: false
+  });
+
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    accessToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
+    attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
     tileSize: 512,
     maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <as href="https://www.mapbox.com/">Mapbox</a>',
-      id: 'mapbox/streets-v11',
-    
+    zoomOffset: -1,
+    id: 'mapbox/streets-v11',
+    accessToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ'
   }).addTo(newMap);
+
+  // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
+  //   mapboxToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
+  //   tileSize: 512,
+  //   maxZoom: 18,
+  //   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+  //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+  //     'Imagery © <as href="https://www.mapbox.com/">Mapbox</a>',
+  //   id: 'mapbox.streets',
+
+  // }).addTo(newMap);
 
   updateRestaurants();
 }
@@ -100,15 +110,15 @@ updateRestaurants = () => {
   const nSelect = document.getElementById('neighborhoods-select');
 
   let cIndex;
-  if(cSelect.selectedIndex === -1 ) cIndex = 0;
+  if (cSelect.selectedIndex === -1) cIndex = 0;
   else cIndex = cSelect.selectedIndex;
 
   let nIndex;
-  if(nSelect.selectedIndex === -1 ) nIndex = 0;
+  if (nSelect.selectedIndex === -1) nIndex = 0;
   else nIndex = nSelect.selectedIndex;
 
   const cuisine = cSelect[cIndex].value;
-  
+
   const neighborhood = nSelect[nIndex].value;
 
   DBHelper.fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, (error, restaurants) => {
@@ -143,8 +153,8 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
-  restaurants.forEach((restaurant, i ) => {
-    ul.append(createRestaurantHTML(restaurant, i , self.restaurants.length));
+  restaurants.forEach((restaurant, i) => {
+    ul.append(createRestaurantHTML(restaurant, i, self.restaurants.length));
   });
   addMarkersToMap();
   addARIAtoMarkers();
@@ -158,7 +168,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant, i, length) => {
   const li = document.createElement('li');
-//console.log(restaurant);
+  //console.log(restaurant);
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
@@ -190,7 +200,7 @@ createRestaurantHTML = (restaurant, i, length) => {
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more);
-  
+
   li.setAttribute('tabindex', '0');
 
   return li
@@ -210,7 +220,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 
-} 
+}
 
 /**
  * Set custom attributes for markers
