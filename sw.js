@@ -92,6 +92,7 @@ self.addEventListener('fetch', function(event) {
 
             caches.open(CACHE_NAME)
               .then(function(cache) {
+                if (!(evt.request.url.indexOf('http') === 0)) return;
                 cache.put(event.request, responseToCache);
               });
 
