@@ -78,13 +78,14 @@ initMap = () => {
         zoom: 12,
         scrollWheelZoom: false
       });
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    accessToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
+    tileSize: 512,
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <as href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets',
+      id: 'mapbox/streets-v11',
     
   }).addTo(newMap);
 
