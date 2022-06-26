@@ -88,17 +88,6 @@ initMap = () => {
     accessToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ'
   }).addTo(newMap);
 
-  // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-  //   mapboxToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
-  //   tileSize: 512,
-  //   maxZoom: 18,
-  //   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-  //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-  //     'Imagery © <as href="https://www.mapbox.com/">Mapbox</a>',
-  //   id: 'mapbox.streets',
-
-  // }).addTo(newMap);
-
   updateRestaurants();
 }
 
