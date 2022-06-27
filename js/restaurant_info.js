@@ -24,7 +24,6 @@ initMap = () => {
         scrollWheelZoom: false
       });
 
-
       // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
       //   mapboxToken: 'pk.eyJ1IjoibWFya2hlYXJkIiwiYSI6ImNqcG90bGp2aTA3MnozeG54Y3V0Y2JtZHgifQ.b4kPa-mg7sek6YSvgquEYQ',
       //   maxZoom: 18,
